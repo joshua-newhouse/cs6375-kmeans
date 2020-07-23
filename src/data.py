@@ -1,13 +1,12 @@
 import numpy
+from sklearn.preprocessing import normalize
 
 class DataSet:
     def __init__(self, data):
         self.nPoints = 0
         self.dataPoints = data[~numpy.isnan(data).any(axis=1)]
 
-        # for i in range(len(self.dataPoints)):
-        #     if numpy.isnan(self.dataPoints[i]).any():
-        #         self.dataPoints = numpy.delete(self.dataPoints, i, 0)
+        self.dataPoints = normalize(self.dataPoints, axis=0)
 
         self.nPoints = len(self.dataPoints)
     # __init__

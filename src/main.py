@@ -3,6 +3,7 @@ import sys
 
 from data import DataSet
 from sklearn.cluster import KMeans
+
 import matplotlib.pyplot as plt
 
 class Application:
@@ -21,6 +22,7 @@ class Application:
 
         print(self.model.labels_)
         print(self.model.cluster_centers_)
+        print(self.model.inertia_)
 
         plt.subplots(1, sharey=True, figsize=(10,6))
 
@@ -33,7 +35,7 @@ class Application:
 
     def generatePlot(self, title, y):
         plt.title(title)
-        plt.scatter(self.dataSet.dataPoints[:,y], self.dataSet.dataPoints[:,0], c=self.model.labels_)
+        plt.scatter(self.dataSet.dataPoints[:,y], self.dataSet.dataPoints[:,4], c=self.model.labels_)
         plt.show()
 # Application
 
